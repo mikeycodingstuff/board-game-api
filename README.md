@@ -46,13 +46,16 @@ const url = "mongodb://root:password@localhost:27017"
 #### GET
 
 - Gets all the players that have been added to the game.
-- Returns `{
+- Returns the following, where data contains the players:
+```
+{
     "success": true,
     "msg": "",
     "code": 200,
     "data": [
     ]
-}` where data contains the players.
+}
+```
 
 #### POST
 - Adds a new player to the game. First checks to see if the name is valid.
@@ -89,7 +92,7 @@ const url = "mongodb://root:password@localhost:27017"
 #### PUT
 - Checks if it is the player's turn via middleware.
 - Rolls a dice and moves the player's position and updates the order accordingly.
-- Returns success true/false:
+- Returns success true/false.
   - If it is the player's turn:
   ```
   {
@@ -121,3 +124,13 @@ const url = "mongodb://root:password@localhost:27017"
 ### /game
   
 #### DELETE
+- Deletes all players from the game and resets the orders on the referee.
+- Returns:
+```
+{
+    "success": true,
+    "msg": "new game started",
+    "code": 400,
+    "data": ""
+}
+```
